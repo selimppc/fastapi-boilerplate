@@ -39,3 +39,4 @@ async def home():
 
 if __name__ == "__main__":
     uvicorn.run(app, log_level="debug", reload=True)
+    # uvicorn.run(app, log_level="debug", host="0.0.0.0", port=8080, reload=True)
