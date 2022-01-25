@@ -84,7 +84,9 @@ async def update_post(id: str, post: UpdatePostSchema = Body(...)) -> dict:
 
 
 @posts_router.delete(
-    "/{id}", response_description="delete a post"
+    "/{id}",
+    tags=["posts"],
+    response_description="delete a post"
 )
 async def delete_post(id: str) -> JSONResponse:
     delete_result = await db["posts"].delete_one({"_id": id})
