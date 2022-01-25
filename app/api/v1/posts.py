@@ -25,7 +25,7 @@ async def list_posts() -> dict:
     """
     list of posts
     """
-    posts_data = await db["posts"].find().to_list(2)
+    posts_data = await db["posts"].find().to_list(1)
     return posts_data
 
 
