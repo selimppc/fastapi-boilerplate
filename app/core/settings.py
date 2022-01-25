@@ -21,12 +21,12 @@ MONGO_MIN_CONNECTIONS = int(os.getenv("MIN_CONNECTIONS_COUNT", 10))
 # MONGO DATABASE
 MONGO_HOST = str(os.getenv("MONGO_HOST", "127.0.0.1"))
 MONGO_PORT = int(os.getenv("MONGO_PORT", 27017))
-MONGO_DB = str(os.getenv("MONGO_DB", "fastapi"))
-MONGO_USERNAME = str(os.getenv("MONGO_USERNAME", "reza"))
-MONGO_PASSWORD = str(os.getenv("MONGO_PASSWORD", "reza123"))
-# MONGO_URL = f"mongodb://localhost:27017/{MONGO_DB}"
-MONGO_URL = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
-# MONGO_URL = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}" \
+MONGO_DATABASE = str(os.getenv("MONGO_DB", "fastapi"))
+MONGO_USERNAME = str(os.getenv("MONGO_USERNAME", "fastapi"))
+MONGO_PASSWORD = str(os.getenv("MONGO_PASSWORD", "reza1234"))
+# MONGO_URL = f"mongodb://localhost:27017/{MONGO_DATABASE}"
+MONGO_URL = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DATABASE}"
+# MONGO_URL = f"mongodb+srv://{MONGO_USERNAME}:{MONGO_PASSWORD}@{MONGO_HOST}:{MONGO_PORT}/{MONGO_DATABASE}" \
 #             f"?retryWrites=true&w=majority "
 
 # Sendgrid configuration

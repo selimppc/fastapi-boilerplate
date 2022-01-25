@@ -4,6 +4,7 @@ User Model
 
 from pydantic import BaseModel, Field, EmailStr
 
+
 class UserSchema(BaseModel):
     fullname: str = Field(...)
     email: EmailStr = Field(...)
@@ -20,6 +21,7 @@ class UserSchema(BaseModel):
                 "password": "123456"
             }
         }
+
 
 class UserLoginSchema(BaseModel):
     email: EmailStr = Field(...)

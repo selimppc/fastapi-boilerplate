@@ -1,0 +1,16 @@
+###  DOCKER COMPOSE ###
+version: "3"
+
+#network
+networks:
+  fastapi:
+
+services:
+  #rabbitMQ
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports: [ "5672", "15672" ]
+    networks:
+      - fastapi
+
