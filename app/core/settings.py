@@ -12,6 +12,7 @@ SECRET_KEY = Secret(os.getenv(
     "SECRET_KEY",
     "4bf4f696a653b292bc674daacd25195b93fce08a8dac7373b36c38f63cd442938b12ef911bd5d7d0")
 )
+ALGORITHM = str(os.getenv("ALGORITHM", "HS256"))
 
 # Mongo configuration
 MONGO_MAX_CONNECTIONS = int(os.getenv("MAX_CONNECTIONS_COUNT", 10))

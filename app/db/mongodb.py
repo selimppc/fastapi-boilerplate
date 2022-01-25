@@ -9,6 +9,10 @@ class Database:
     """
     DATABASE
     """
+
+    def __init__(self):
+        pass
+
     client: AsyncIOMotorClient = None
 
 

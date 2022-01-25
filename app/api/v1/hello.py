@@ -1,11 +1,17 @@
 """
 Hello World
 """
-from fastapi import APIRouter
+from fastapi import APIRouter, status
+from fastapi.responses import JSONResponse
 
 hello_router = APIRouter()
 
 
 @hello_router.get("/")
 async def home():
-    return "Hello World"
+    hello_world = "Hello World"
+
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content=hello_world
+    )
