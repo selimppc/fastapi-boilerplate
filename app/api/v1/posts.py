@@ -6,26 +6,37 @@ from fastapi import APIRouter, status, Body, HTTPException
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 
+# from fastapi.
+#from fastapi_pagination import LimitOffsetPage, Page, add_pagination
+#from fastapi_pagination.ext.motor import paginate
 
 from app.core import settings
 from app.models.post import PostSchema, UpdatePostSchema
 import motor.motor_asyncio
 
+from app.serializer.posts_serializer import post_serializer
+
 posts_router = APIRouter()
 client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGO_URL)
 db = client.college
+
+database = client.college
+
+student_collection = database.get_collection("students_collection")
 
 
 @posts_router.get(
     "/", tags=["posts"],
     response_description="List of posts",
-    response_model=List[PostSchema]
+    #response_model=LimitOffsetPage(PostSchema)
 )
-async def list_posts() -> dict:
+async def list_posts():
     """
     list of posts
     """
-    posts_data = await db["posts"].find().to_list(1)
+    posts_data = []
+    async for post in db["posts"].find():
+        posts_data.append(post_serializer(post))
     return posts_data
 
 

@@ -2,6 +2,9 @@
 
 ```bash
 
+python ::: 3.8 
+
+
 # Install the requirements:
 pip install -r requirements.txt
 
